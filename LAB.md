@@ -17,16 +17,16 @@ You are free to query the data for a genre, actor, whatever that you want.
 
 * Use `create-react-app` to create your react app project
 
-* Your main component takes props for
+* Your need to manage state for:
   * `loading` - indicates app should display "loading" info
   * `movies` - the list of movies to display
  
-* Decompose into meaningful components (logical parts)
+* Decompose into meaningful components (logical parts). Use multiple modules when it makes sense
 
-* Use `key` to track list items
+* Use `key` to track list items (goes on top-level component tag or element under `map(` operation
 
 * Add at least a moderately acceptable level of css style. You can either use:
-  * Import `main.css` in index.js
+  * Imported `index.css` in index.js
   * Use inline styles directly on your elements
 
 ## Rubric *10pts*
