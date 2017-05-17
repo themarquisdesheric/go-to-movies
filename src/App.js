@@ -21,9 +21,9 @@ class MovieApp extends Component {
       loading: true,
       movies: []
     });
-    fetch(`http://www.omdbapi.com/?s=${encodeURI(title)}&plot=short&r=json`)
+    fetch(`http://www.omdbapi.com/?s=${encodeURI(title)}&plot=short`)
       .then(res => res.json())
-      .then(data => data.Search)
+      .then(data => data.Search) //why is this Search capitalized?
       .then(movies => {
         this.setState({
           movies,
@@ -40,14 +40,6 @@ class MovieApp extends Component {
           <h2>The Ripe Banana Movie Database</h2>
         </div>
         <h2>Search your favorite movies</h2>
-        {this.state.loading ? <div>Loading...</div> : null}
-        <ul>
-          {this.state.movies.map((movie, i) => <li key={i}>
-            <img src={movie.Poster} alt="Poster" />
-            {movie.Title}
-
-          </li>)}
-        </ul>
         <div>
           <form onSubmit={event => {
             event.preventDefault();
@@ -58,6 +50,16 @@ class MovieApp extends Component {
             <button type="submit">Search</button>
           </form>
         </div>
+        {this.state.loading ? <div>Loading...</div> : null}
+        <ul>
+          {this.state.movies.map((movie, i) => <li key={i}>
+            <img src={movie.Poster} alt="Poster" />
+            {movie.Title}
+            {movie.Year}
+            {/*{movie.Actors}
+            {movie.Plot}*/}
+          </li>)}
+        </ul>
       </div>
     );
   }
