@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #FF6663;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-container {
+  color: #FF6663;
+  background-color: white;
+  height: 60vh;
+  width: 70vw;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.Text-Box {
+  border:none;
+  border-bottom: 5px solid white;
+  height: 5vh;
+  width: 50vw;
+  background: transparent;
+  margin: 4vh 0vh;
+  color: white;
+  outline: none;
+  font-size: 2em;
+}
+
+::placeholder {
+    color: white;
+}
