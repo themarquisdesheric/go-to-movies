@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 
 function Movie({ movie }) {
-  return <li>{ movie.Title }</li>;
+  return (
+    <li>
+      <h3>{ movie.Title }</h3>
+      { movie.Year }
+      <img src={ movie.Poster } alt={ movie.Title } onClick={ e => console.log(e.target.src) }/>
+    </li>
+  );
 }
 
 class App extends Component {
@@ -28,12 +34,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="App">
         <h1 className="App-header">List of Attempts to Cinematize Dune</h1>
 
-        { this.state.loading ? <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="loading" /> : null }
-
         <ul>
+          { this.state.loading ? <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="loading" /> : null }
           { this.state.movies.map((movie, idx) => <Movie key={ idx } movie={ movie } /> )}
         </ul>
 
