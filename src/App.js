@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
+function Movie({ movie }) {
+  return <li>{ movie.Title }</li>;
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -8,6 +12,10 @@ class App extends Component {
     this.state = {
       movies: []
     };
+  }
+
+  componentDidMount() {
+    this.populateMovies();
   }
 
   populateMovies() {
@@ -25,8 +33,7 @@ class App extends Component {
         <h1 className="App-header">List of Attempts to Cinematize Dune</h1>
 
         <ul>
-          { this.populateMovies() }
-          { this.state.movies.map((movie, idx) => <li key={idx}>{ movie.Title }</li> )}
+          { this.state.movies.map((movie, idx) => <Movie key={ idx } movie={ movie } /> )}
         </ul>
 
       </div>
