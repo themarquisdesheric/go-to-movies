@@ -12,7 +12,7 @@ class MovieApp extends Component {
     };
   }
 
-  componenetDidMount() {
+  componentDidMount() {
     this.search('Indiana Jones')
   }
 
@@ -23,7 +23,17 @@ class MovieApp extends Component {
     });
     fetch(`http://www.omdbapi.com/?s=${encodeURI(title)}&plot=short`)
       .then(res => res.json())
-      .then(data => data.Search) //why is this Search capitalized?
+      .then(data => data.Search) //capital "Search" because that's on the API data type
+      .then(movies => {
+        const promises = movies.map(movie => {
+          return fetch(`http://www.omdbapi.com/?t=${encodeURI(movie.Title)}&plot=short`)
+            .then(response => {
+              console.log('Response: ', response);
+              return response.json();
+            })
+        })
+        return Promise.all(promises);
+      })
       .then(movies => {
         this.setState({
           movies,
@@ -56,8 +66,8 @@ class MovieApp extends Component {
             <img src={movie.Poster} alt="Poster" />
             {movie.Title}
             {movie.Year}
-            {/*{movie.Actors}
-            {movie.Plot}*/}
+            {movie.Actors}
+            {movie.Plot}
           </li>)}
         </ul>
       </div>
