@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: hsla(248, 27%, 76%, 0.50);
+}
+
+.App {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.App-logo {
+  /*animation: App-logo-spin infinite 20s linear;*/
+  height: 80px;
+}
+
+.App-header {
+  background-color: hsla(248, 35%, 62%, 0.61);
+  height: 150px;
+  padding: 20px;
+  color: turquoise;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+form {
+  padding: 10px;
+}
+
+input {
+  height: 50px;
+  width: 200px;
+  border-radius: 10%;
+  font-size: 20px;
+}
+
+button {
+  height: 60px;
+  width: 150px;
+  margin: 10px;
+  color: #fff;
+  text-shadow: -2px 2px #346392;
+  background-color:hsla(248, 15%, 80%, 0.61);
+  /*background-image: linear-gradient(top, #6496c8, #346392);*/
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 15px;
+}
+
+button:hover,
+button.hover {
+  box-shadow: inset 0 0 0 1px #27496d,0 5px 15px #193047;
+}
+
+button:active,
+button.active {
+  box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
