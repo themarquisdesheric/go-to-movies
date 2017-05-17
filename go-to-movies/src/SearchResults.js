@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
+import './App.css';
 
-//making a stateless function
-//props represents anything we pass on from parent, in this case it's state
 function SearchResults(props) {
     return (
         <div>
-            <h2>Search Movie Database</h2>
-            {/*Q: I know this is a turnery, but look up what it means*/}
+            <h2 className="website_title">Search Movie Database</h2>
             {props.loading ? <div>Loading...</div> : null}
 
             <ul>
-                {/*Q: what is key?*/}
                 {props.movies.map((movie, i) => <li key={i}>
                     <img src={movie.Poster} />
+                    <br/>
                     {movie.Title}
+                    <br/>
+                    {movie.Year}
                 </li>)}
             </ul>
         </div>
