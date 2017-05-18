@@ -1,17 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
 
-function Movie({ movie }) {
-  return (
-    <li>
-      <h3>{ movie.Title }</h3>
-      { movie.Year }
-      <img src={ movie.Poster } 
-           alt={ movie.Title } 
-           onClick={ e => console.log('clicked!') }
-      />
-    </li>
-  );
+class Movie extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      colorClass: ''
+    };
+  }
+
+  changeColor() {
+    this.setState({ 
+      colorClass: this.state.colorClass ? '' : 'header-color'
+   });
+  }
+
+  render() {
+    const { movie } = this.props;
+
+    return (
+      <li>
+        <h3 className={this.state.colorClass}>{ movie.Title }</h3>
+        { movie.Year }
+        <img src={ movie.Poster } 
+            alt={ movie.Title } 
+            onClick={e => this.changeColor()}
+        />
+      </li>
+    );
+  }
 }
 
 class App extends Component {

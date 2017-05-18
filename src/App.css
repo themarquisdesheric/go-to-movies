@@ -25,4 +25,9 @@ li {
 
 h3 {
   margin: 0.5em 0;
+  transition: color 1s ease-in;
+}
+
+.header-color {
+  color: hotpink;
 }
