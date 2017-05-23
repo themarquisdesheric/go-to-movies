@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   populateMovies(movie = 'dune') {
-    fetch(`http://www.omdbapi.com/?s=${encodeURI(movie)}&plot=short&r=json`)
+    fetch(`http://www.omdbapi.com/?apikey=3db77742&s=${encodeURI(movie)}&plot=short&r=json`)
       .then(res => res.json())
       .then(data => data.Search)
       .then(movies => this.setState({ movies, loading: false }));
